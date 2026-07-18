@@ -1,0 +1,769 @@
+/* =========================================================
+   SkillBridge — Global Stylesheet
+   Theme: Dark (near-black / deep blue) + warm rust-brown accent
+   Fonts: Poppins (headings) + Inter (body text)
+   Notes for beginners:
+   - Everything is plain CSS: flexbox + grid, no frameworks.
+   - Colors are stored once as variables (:root) so the whole
+     site stays consistent — change them here, they update
+     everywhere.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* ---------- 1. Variables (colors, fonts, spacing) ---------- */
+
+:root {
+  /* Backgrounds */
+  --bg-main: #0d1017;        /* page background — near black, hint of blue */
+  --bg-alt: #11151d;         /* alternating section background */
+  --bg-card: #171b24;        /* cards, forms */
+  --bg-card-hover: #1c212c;
+
+  /* Borders / dividers */
+  --border-color: #262c38;
+
+  /* Accent (rust / brown) */
+  --accent: #b8552f;
+  --accent-hover: #d16a3f;
+  --accent-soft: rgba(184, 85, 47, 0.15);
+
+  /* Text */
+  --text-main: #eceef1;
+  --text-muted: #9aa1ad;
+  --text-faint: #6b7280;
+
+  /* Status colors used in badges/community (kept simple) */
+  --success: #4caf7d;
+
+  /* Fonts */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Layout */
+  --max-width: 1150px;
+  --radius: 10px;
+  --transition: 0.2s ease;
+}
+
+/* ---------- 2. Reset ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  width: 100%;
+  overflow-x: hidden; /* stops any accidental horizontal scroll on mobile */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* A shared "content box" so every section lines up the same way
+   and nothing sticks to just the left or right edge on mobile. */
+section {
+  width: 100%;
+  padding: 70px 20px;
+}
+
+section:nth-of-type(even) {
+  background-color: var(--bg-alt);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* small accent underline under every section title */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+/* ---------- 3. Navbar ---------- */
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 16px 5%;
+  background-color: rgba(13, 16, 23, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Logo placeholder — replace text with an <img> later.
+   Until then, a small rounded accent tile stands in for the
+   logo mark so the spot is visually reserved. */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.logo::before {
+  content: "SB";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition);
+  padding: 6px 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-hover);
+}
+
+/* ---------- 4. Buttons (shared across every page) ---------- */
+
+.primary-btn,
+.btn.primary-btn,
+#create-profile-btn,
+#save-project-btn,
+#add-project-btn,
+.apply-btn,
+.connect-btn,
+.badge-btn {
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+  border-radius: 8px;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.primary-btn:hover,
+.btn.primary-btn:hover,
+#create-profile-btn:hover,
+#save-project-btn:hover,
+#add-project-btn:hover,
+.apply-btn:hover:not(:disabled),
+.connect-btn:hover:not(:disabled),
+.badge-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.secondary-btn,
+.btn.secondary-btn,
+#cancel-project-btn {
+  background-color: transparent;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 11px 25px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.secondary-btn:hover,
+.btn.secondary-btn:hover,
+#cancel-project-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* Buttons after being clicked (e.g. "Applied ✓", "Connected ✓") */
+.apply-btn:disabled,
+.connect-btn:disabled {
+  background-color: var(--bg-card-hover);
+  color: var(--text-faint);
+}
+
+/* ---------- 5. Hero section (all pages) ---------- */
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px;
+  gap: 22px;
+  background:
+    radial-gradient(circle at 50% 0%, var(--accent-soft), transparent 60%),
+    var(--bg-main);
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  max-width: 850px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--text-muted);
+  max-width: 650px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* ---------- 6. Card grids (problem / features / future / impact) ---------- */
+
+.problem-container,
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 30px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.problem-container .card,
+.features-container .card {
+  margin: 0;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+#impact .card,
+#cta .card {
+  text-align: center;
+}
+
+#cta .card h2 {
+  margin-bottom: 14px;
+  font-size: 1.6rem;
+}
+
+#cta .card p {
+  margin-bottom: 22px;
+}
+
+/* ---------- 7. Community page ---------- */
+
+#community-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.community-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.community-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.community-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.community-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.community-card strong {
+  color: var(--text-main);
+}
+
+.community-card .connect-btn {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ---------- 8. Opportunities page ---------- */
+
+#opportunities-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.opportunity-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: transform var(--transition);
+}
+
+.opportunity-card:hover {
+  transform: translateY(-3px);
+}
+
+.opportunity-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.opportunity-description {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+.opportunity-card p {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+}
+
+.opportunity-card .apply-btn {
+  width: 100%;
+}
+
+/* ---------- 9. Profile page ---------- */
+
+#profile-setup,
+#profile-dashboard {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile-form,
+.project-form {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  color: var(--text-muted);
+}
+
+#create-profile-btn {
+  align-self: flex-start;
+}
+
+.profile-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#display-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 10px;
+}
+
+#display-name {
+  font-size: 1.4rem;
+}
+
+#display-university,
+#display-bio {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+#display-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+/* individual skill tag — JS likely adds a <span> per skill */
+#display-skills span {
+  background-color: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.profile-card .btn {
+  margin-top: 6px;
+}
+
+/* Profile strength */
+
+#profile-strength {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  margin-top: 26px;
+}
+
+#strength-percentage {
+  font-size: 2.4rem;
+  color: var(--accent-hover);
+  margin: 8px 0;
+}
+
+#profile-strength p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Earned badges */
+
+#earned-badges {
+  margin-top: 26px;
+  text-align: center;
+}
+
+#badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+#badges-container p {
+  color: var(--text-faint);
+}
+
+/* Earn badges — quiz cards */
+
+#earn-badges {
+  margin-top: 40px;
+}
+
+#earn-badges .section-title {
+  font-size: 1.6rem;
+}
+
+.badge-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto 16px;
+  transition: border-color var(--transition);
+}
+
+.badge-card:hover {
+  border-color: var(--accent);
+}
+
+.badge-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.badge-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+/* Quiz section */
+
+#quiz-section {
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+
+#quiz-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+#quiz-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- 10. Projects page ---------- */
+
+#projects-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.projects-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+#project-form-container {
+  max-width: 600px;
+  margin: 0 auto 34px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+#no-projects-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 50px 20px;
+}
+
+#no-projects-message h3 {
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+#projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+/* Project cards get generated by JS inside #projects-container —
+   this reuses the shared .card look so they still match the theme. */
+#projects-container .card,
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+/* ---------- 11. Footer ---------- */
+
+#footer {
+  text-align: center;
+  padding: 50px 20px 30px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-alt);
+}
+
+#footer h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--accent-hover);
+}
+
+#footer p {
+  color: var(--text-faint);
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+/* ---------- 12. Mobile responsiveness ---------- */
+
+@media (max-width: 768px) {
+
+  #navbar {
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  section {
+    padding: 50px 16px;
+  }
+
+  .hero {
+    padding: 60px 16px;
+    min-height: 45vh;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .profile-form,
+  .project-form {
+    padding: 24px;
+  }
+
+  .profile-card {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+}
