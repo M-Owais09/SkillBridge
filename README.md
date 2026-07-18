@@ -1,7 +1,10 @@
 # SkillBridge
 
 **Team Name:** NULL POINTER
-**Team Members:** Muhammad Ahmed, Owais, Moeez
+**Team Members:** 
+Muhammad Ahmed 
+Muhammad Owais
+Muhammad Moeez
 
 **Live Project:** https://skill-bridge-psi-seven.vercel.app/
 **GitHub Repository:** https://github.com/M-Owais09/SkillBridge
