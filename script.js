@@ -216,6 +216,32 @@ const deleteButton =
 const editButton =
     document.getElementById("edit-profile-btn");
 
+const pictureInput =
+    document.getElementById("profile-pic");
+
+const displayPic =
+    document.getElementById("display-pic");
+
+pictureInput.addEventListener("change",()=>{
+
+    const file =
+        pictureInput.files[0];
+
+    if(!file)
+        return;
+
+    const reader =
+        new FileReader();
+
+    reader.onload = function(e){
+
+        displayPic.src =
+            e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+
+});
 
 // Hide dashboard initially
 dashboard.style.display = "none";
@@ -249,21 +275,17 @@ createButton.addEventListener("click", () => {
     return;
     }
     
+    let imageData =
+    displayPic.src;
+
     const profileData = {
 
-        name:
-            nameInput.value,
-
-        university:
-            universityInput.value,
-
-        bio:
-            bioInput.value,
-
-        skills:
-            skillsInput.value
-    };
-
+    name: nameInput.value,
+    university: universityInput.value,
+    bio: bioInput.value,
+    skills: skillsInput.value,
+    picture: imageData
+};
 
     // Save profile permanently
     localStorage.setItem(
@@ -339,6 +361,9 @@ editButton.addEventListener("click", () => {
 
 
     // Fill form with previous data
+    displayPic.src =
+        profile.picture;
+
     nameInput.value =
         profile.name;
 
@@ -529,6 +554,13 @@ function loadProfile()
     if (!profile)
         return;
 
+    if(profile.picture)
+    {
+        document.getElementById(
+            "display-pic"
+        ).src =
+        profile.picture;
+    }
 
     document.getElementById(
         "display-name"
