@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Profile</title>
+    <!-- Linked using your team's structure -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR (Reused across all pages) ================= -->
+    <nav id="navbar">
+        <div class="logo">SkillBridge</div>
+        <ul class="nav-links">
+            <!-- Page routing updated from hashes to actual page names per rule -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#problem">Problem</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= PROFILE SECTION ================= -->
+    <!-- Using shared class 'container' for structural grouping -->
+    <section class="container">
+        <h2 class="section-title">Your Digital Profile</h2>
+        
+        <div class="profile-layout" style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+            
+            <!-- LEFT COLUMN: Profile Inputs Form -->
+            <!-- Matches team ID: profile-form -->
+            <div class="card" id="profile-form">
+                <h3>Edit Profile</h3>
+                <form>
+                    <!-- File upload for runtime picture -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="profile-pic-input" style="font-weight: bold; margin-bottom: 0.5rem;">Profile Picture</label>
+                        <input type="file" id="profile-pic-input" accept="image/*">
+                    </div>
+
+                    <!-- Matches team ID: name-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="name-input" style="font-weight: bold; margin-bottom: 0.5rem;">Full Name</label>
+                        <input type="text" id="name-input" placeholder="e.g. Muhammad Owais" required>
+                    </div>
+
+                    <!-- Matches team ID: university-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="university-input" style="font-weight: bold; margin-bottom: 0.5rem;">University</label>
+                        <input type="text" id="university-input" placeholder="e.g. NED University" required>
+                    </div>
+
+                    <!-- Matches team ID: bio-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="bio-input" style="font-weight: bold; margin-bottom: 0.5rem;">Bio</label>
+                        <textarea id="bio-input" placeholder="Tell us about yourself..." rows="3" required></textarea>
+                    </div>
+
+                    <!-- Matches team ID: skills-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="skills-input" style="font-weight: bold; margin-bottom: 0.5rem;">Skills (Comma separated)</label>
+                        <input type="text" id="skills-input" placeholder="e.g. C++, Git, HTML" required>
+                    </div>
+
+                    <!-- Action buttons matching team IDs and shared button classes -->
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="btn primary-btn" id="save-profile-btn">Save Profile</button>
+                        <button type="button" class="btn secondary-btn" id="clear-profile-btn">Clear Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: Profile Live Display Canvas -->
+            <!-- Matches team ID: profile-display -->
+            <div class="card" id="profile-display" style="flex: 1; min-width: 320px; text-align: center;">
+                <h3>Live Preview</h3>
+                
+                <div class="avatar-container" style="width: 130px; height: 130px; border-radius: 50%; overflow: hidden; margin: 1rem auto; border: 3px solid #007bff;">
+                    <img id="display-pic" src="https://via.placeholder.com/150" alt="picture" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Text presentation content parameters updated dynamically by script.js -->
+                <h2 id="display-name" style="margin: 0.5rem 0;">Your Name</h2>
+                <p id="display-university" style="font-style: italic; color: #666; margin-bottom: 1rem;">Your University</p>
+                <p id="display-bio">Your professional bio will appear here.</p>
+                
+                <!-- Display tags tracking injected skill strings matching class: skill-tag -->
+                <div class="skills-tag-container" id="display-skills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; justify-content: center;">
+                    <!-- Tags will render here as: <span class="skill-tag">C++</span> -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <h3>SkillBridge</h3>
+        <p>Bridging Skills and Opportunities.</p>
+        <p>BuildByte Hackathon Submission</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
