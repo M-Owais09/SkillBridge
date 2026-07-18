@@ -1,109 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillBridge - Profile</title>
-    <!-- Linked using your team's structure -->
+
+    <title>SkillBridge | Profile</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-    <!-- ================= NAVBAR (Reused across all pages) ================= -->
+    <!-- ================= NAVBAR ================= -->
+
     <nav id="navbar">
-        <div class="logo">SkillBridge</div>
+
+        <div class="logo">
+            SkillBridge
+        </div>
+
         <ul class="nav-links">
-            <!-- Page routing updated from hashes to actual page names per rule -->
+
             <li><a href="index.html">Home</a></li>
+
             <li><a href="index.html#problem">Problem</a></li>
+
             <li><a href="index.html#features">Features</a></li>
-            <li><a href="profile.html" class="active">Profile</a></li>
+
+            <li><a href="profile.html">Profile</a></li>
+
             <li><a href="projects.html">Projects</a></li>
+
             <li><a href="community.html">Community</a></li>
+
             <li><a href="opportunities.html">Opportunities</a></li>
+
         </ul>
+
     </nav>
 
-    <!-- ================= PROFILE SECTION ================= -->
-    <!-- Using shared class 'container' for structural grouping -->
-    <section class="container">
-        <h2 class="section-title">Your Digital Profile</h2>
-        
-        <div class="profile-layout" style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
-            
-            <!-- LEFT COLUMN: Profile Inputs Form -->
-            <!-- Matches team ID: profile-form -->
-            <div class="card" id="profile-form">
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <h1 class="hero-title">
+
+            Build Your Digital Identity
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Showcase your skills, achievements and progress beyond traditional credentials.
+
+        </p>
+
+    </section>
+
+    <!-- ================= PROFILE ================= -->
+
+    <section id="profile">
+
+        <h2 class="section-title">
+
+            Personal Profile
+
+        </h2>
+
+        <div class="profile-container">
+
+            <!-- ================= PROFILE FORM ================= -->
+
+            <div class="profile-form">
+
                 <h3>Edit Profile</h3>
-                <form>
-                    <!-- File upload for runtime picture -->
-                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
-                        <label for="profile-pic-input" style="font-weight: bold; margin-bottom: 0.5rem;">Profile Picture</label>
-                        <input type="file" id="profile-pic-input" accept="image/*">
-                    </div>
 
-                    <!-- Matches team ID: name-input -->
-                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
-                        <label for="name-input" style="font-weight: bold; margin-bottom: 0.5rem;">Full Name</label>
-                        <input type="text" id="name-input" placeholder="e.g. Muhammad Owais" required>
-                    </div>
+                <label for="profile-name">Full Name</label>
 
-                    <!-- Matches team ID: university-input -->
-                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
-                        <label for="university-input" style="font-weight: bold; margin-bottom: 0.5rem;">University</label>
-                        <input type="text" id="university-input" placeholder="e.g. NED University" required>
-                    </div>
+                <input
+                    type="text"
+                    id="profile-name"
+                    placeholder="Enter your full name">
 
-                    <!-- Matches team ID: bio-input -->
-                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
-                        <label for="bio-input" style="font-weight: bold; margin-bottom: 0.5rem;">Bio</label>
-                        <textarea id="bio-input" placeholder="Tell us about yourself..." rows="3" required></textarea>
-                    </div>
+                <label for="profile-university">University / Institution</label>
 
-                    <!-- Matches team ID: skills-input -->
-                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
-                        <label for="skills-input" style="font-weight: bold; margin-bottom: 0.5rem;">Skills (Comma separated)</label>
-                        <input type="text" id="skills-input" placeholder="e.g. C++, Git, HTML" required>
-                    </div>
+                <input
+                    type="text"
+                    id="profile-university"
+                    placeholder="Your university">
 
-                    <!-- Action buttons matching team IDs and shared button classes -->
-                    <div style="display: flex; gap: 1rem;">
-                        <button type="submit" class="btn primary-btn" id="save-profile-btn">Save Profile</button>
-                        <button type="button" class="btn secondary-btn" id="clear-profile-btn">Clear Profile</button>
-                    </div>
-                </form>
+                <label for="profile-email">Email</label>
+
+                <input
+                    type="email"
+                    id="profile-email"
+                    placeholder="example@email.com">
+
+                <label for="profile-location">Location</label>
+
+                <input
+                    type="text"
+                    id="profile-location"
+                    placeholder="City, Country">
+
+                <label for="profile-bio">Short Bio</label>
+
+                <textarea
+                    id="profile-bio"
+                    rows="5"
+                    placeholder="Tell the community about yourself..."></textarea>
+
+                <label for="profile-skills">Skills</label>
+
+                <input
+                    type="text"
+                    id="profile-skills"
+                    placeholder="HTML, CSS, JavaScript">
+
+                <button id="save-profile-btn">
+
+                    Save Profile
+
+                </button>
+
             </div>
 
-            <!-- RIGHT COLUMN: Profile Live Display Canvas -->
-            <!-- Matches team ID: profile-display -->
-            <div class="card" id="profile-display" style="flex: 1; min-width: 320px; text-align: center;">
-                <h3>Live Preview</h3>
-                
-                <div class="avatar-container" style="width: 130px; height: 130px; border-radius: 50%; overflow: hidden; margin: 1rem auto; border: 3px solid #007bff;">
-                    <img id="display-pic" src="https://via.placeholder.com/150" alt="picture" style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- ================= PROFILE PREVIEW ================= -->
+
+            <div class="profile-preview">
+
+                <h3>Profile Overview</h3>
+
+                <div class="profile-avatar">
+
+                    👤
+
                 </div>
 
-                <!-- Text presentation content parameters updated dynamically by script.js -->
-                <h2 id="display-name" style="margin: 0.5rem 0;">Your Name</h2>
-                <p id="display-university" style="font-style: italic; color: #666; margin-bottom: 1rem;">Your University</p>
-                <p id="display-bio">Your professional bio will appear here.</p>
-                
-                <!-- Display tags tracking injected skill strings matching class: skill-tag -->
-                <div class="skills-tag-container" id="display-skills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; justify-content: center;">
-                    <!-- Tags will render here as: <span class="skill-tag">C++</span> -->
-                </div>
+                <h2 id="display-name">
+
+                    Your Name
+
+                </h2>
+
+                <p id="display-university">
+
+                    University
+
+                </p>
+
+                <p id="display-email">
+
+                    example@email.com
+
+                </p>
+
+                <p id="display-location">
+
+                    Location
+
+                </p>
+
+                <p id="display-bio">
+
+                    Your short introduction will appear here.
+
+                </p>
+
+                <h4>
+
+                    Skills
+
+                </h4>
+
+                <p id="display-skills">
+
+                    HTML • CSS • JavaScript
+
+                </p>
+
             </div>
 
         </div>
+
     </section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= PROFILE STRENGTH ================= -->
+
+    <section id="profile-strength">
+
+        <h2 class="section-title">
+
+            Profile Strength
+
+        </h2>
+
+        <div class="strength-card">
+
+            <h3>
+
+                80% Complete
+
+            </h3>
+
+            <p>
+
+                Complete your projects, earn badges and participate in assessments to strengthen your profile.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= BADGES ================= -->
+
+    <section id="badges">
+
+        <h2 class="section-title">
+
+            Earned Badges
+
+        </h2>
+
+        <div class="badges-container">
+
+            <div class="badge-card">
+
+                <h3>🏅 HTML Explorer</h3>
+
+                <p>Completed HTML Fundamentals Assessment.</p>
+
+            </div>
+
+            <div class="badge-card">
+
+                <h3>🎨 CSS Stylist</h3>
+
+                <p>Successfully completed CSS Design Challenge.</p>
+
+            </div>
+
+            <div class="badge-card">
+
+                <h3>⚡ JavaScript Beginner</h3>
+
+                <p>Passed JavaScript Basics MCQ Assessment.</p>
+
+            </div>
+
+            <div class="badge-card">
+
+                <h3>🧠 Problem Solver</h3>
+
+                <p>Solved 20 technical assessment questions.</p>
+
+            </div>
+
+            <div class="badge-card">
+
+                <h3>🤝 Team Player</h3>
+
+                <p>Active contributor within the SkillBridge community.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ================= KNOWLEDGE ASSESSMENTS ================= -->
+
+    <section id="assessments">
+
+        <h2 class="section-title">
+
+            Knowledge Assessments
+
+        </h2>
+
+        <div class="assessment-container">
+
+            <div class="assessment-card">
+
+                <h3>HTML</h3>
+
+                <p>Score: 92%</p>
+
+                <p>Badge Earned: HTML Explorer</p>
+
+            </div>
+
+            <div class="assessment-card">
+
+                <h3>CSS</h3>
+
+                <p>Score: 86%</p>
+
+                <p>Badge Earned: CSS Stylist</p>
+
+            </div>
+
+            <div class="assessment-card">
+
+                <h3>JavaScript</h3>
+
+                <p>Score: 78%</p>
+
+                <p>Badge Earned: JavaScript Beginner</p>
+
+            </div>
+
+            <div class="assessment-card">
+
+                <h3>Problem Solving</h3>
+
+                <p>Score: 88%</p>
+
+                <p>Badge Earned: Problem Solver</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COMMUNITY ACTIVITY ================= -->
+
+    <section id="community-activity">
+
+        <h2 class="section-title">
+
+            Community Activity
+
+        </h2>
+
+        <div class="community-container">
+
+            <div class="community-card">
+
+                <h3>Peer Endorsements</h3>
+
+                <p>✓ Web Development (12)</p>
+
+                <p>✓ Teamwork (9)</p>
+
+                <p>✓ Problem Solving (15)</p>
+
+            </div>
+
+            <div class="community-card">
+
+                <h3>Connections</h3>
+
+                <p>34 Community Members</p>
+
+            </div>
+
+            <div class="community-card">
+
+                <h3>Status</h3>
+
+                <p>🟢 Open to Collaborate</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECT STATISTICS ================= -->
+
+    <section id="project-stats">
+
+        <h2 class="section-title">
+
+            Project Statistics
+
+        </h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+
+                <h3>Projects Published</h3>
+
+                <h1>4</h1>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Skills Demonstrated</h3>
+
+                <h1>12</h1>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Community Views</h3>
+
+                <h1>142</h1>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Peer Endorsements</h3>
+
+                <h1>31</h1>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OPPORTUNITY PROGRESS ================= -->
+
+    <section id="opportunity-progress">
+
+        <h2 class="section-title">
+
+            Opportunity Progress
+
+        </h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+
+                <h3>Scholarships Applied</h3>
+
+                <h1>2</h1>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Internships Applied</h3>
+
+                <h1>3</h1>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Jobs Applied</h3>
+
+                <h1>1</h1>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RECENT ACHIEVEMENTS ================= -->
+
+    <section id="achievements">
+
+        <h2 class="section-title">
+
+            Recent Achievements
+
+        </h2>
+
+        <div class="achievement-container">
+
+            <div class="achievement-card">
+
+                <h3>🏆 Published First Project</h3>
+
+                <p>Successfully showcased your first community project.</p>
+
+            </div>
+
+            <div class="achievement-card">
+
+                <h3>🏅 Earned HTML Explorer Badge</h3>
+
+                <p>Completed HTML Fundamentals Assessment.</p>
+
+            </div>
+
+            <div class="achievement-card">
+
+                <h3>🤝 Joined SkillBridge Community</h3>
+
+                <p>Started collaborating with other talented members.</p>
+
+            </div>
+
+            <div class="achievement-card">
+
+                <h3>⭐ Top Community Contributor</h3>
+
+                <p>Received multiple peer endorsements.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+        <!-- ================= FOOTER ================= -->
+
     <footer id="footer">
-        <h3>SkillBridge</h3>
-        <p>Bridging Skills and Opportunities.</p>
-        <p>BuildByte Hackathon Submission</p>
+
+        <h3>
+
+            SkillBridge
+
+        </h3>
+
+        <p>
+
+            Bridging Skills and Opportunities.
+
+        </p>
+
+        <p>
+
+            BuildByte Hackathon Submission
+
+        </p>
+
     </footer>
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
