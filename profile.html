@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SkillBridge | Profile</title>
 
     <link rel="stylesheet" href="style.css">
@@ -43,476 +42,408 @@
 
     </nav>
 
+
     <!-- ================= HERO ================= -->
 
     <section class="hero">
 
         <h1 class="hero-title">
-
             Build Your Digital Identity
-
         </h1>
 
         <p class="hero-subtitle">
-
-            Showcase your skills, achievements and progress beyond traditional credentials.
-
+            Showcase your skills and prove your capabilities beyond traditional credentials.
         </p>
 
     </section>
 
-    <!-- ================= PROFILE ================= -->
 
-    <section id="profile">
+    <!-- ====================================================== -->
+    <!-- ACCOUNT CREATION SECTION -->
+    <!-- Hidden once profile exists -->
+    <!-- ====================================================== -->
+
+    <section id="profile-setup">
 
         <h2 class="section-title">
-
-            Personal Profile
-
+            Create Your Profile
         </h2>
 
-        <div class="profile-container">
+        <div class="profile-form">
 
-            <!-- ================= PROFILE FORM ================= -->
+            <div class="form-group">
 
-            <div class="profile-form">
+                <label for="profile-pic">
+                    Profile Picture
+                </label>
 
-                <h3>Edit Profile</h3>
+                <input
+                    type="file"
+                    id="profile-pic"
+                    accept="image/*">
 
-                <label for="profile-name">Full Name</label>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="name-input">
+                    Full Name
+                </label>
 
                 <input
                     type="text"
-                    id="profile-name"
-                    placeholder="Enter your full name">
+                    id="name-input"
+                    placeholder="Enter your name">
 
-                <label for="profile-university">University / Institution</label>
+            </div>
 
-                <input
-                    type="text"
-                    id="profile-university"
-                    placeholder="Your university">
 
-                <label for="profile-email">Email</label>
+            <div class="form-group">
 
-                <input
-                    type="email"
-                    id="profile-email"
-                    placeholder="example@email.com">
-
-                <label for="profile-location">Location</label>
+                <label for="university-input">
+                    University
+                </label>
 
                 <input
                     type="text"
-                    id="profile-location"
-                    placeholder="City, Country">
+                    id="university-input"
+                    placeholder="Enter your university">
 
-                <label for="profile-bio">Short Bio</label>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="bio-input">
+                    Bio
+                </label>
 
                 <textarea
-                    id="profile-bio"
-                    rows="5"
-                    placeholder="Tell the community about yourself..."></textarea>
+                    id="bio-input"
+                    rows="4"
+                    placeholder="Tell us about yourself"></textarea>
 
-                <label for="profile-skills">Skills</label>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="skills-input">
+                    Skills
+                </label>
 
                 <input
                     type="text"
-                    id="profile-skills"
-                    placeholder="HTML, CSS, JavaScript">
+                    id="skills-input"
+                    placeholder="HTML, CSS, C++, Git">
 
-                <button id="save-profile-btn">
+            </div>
 
-                    Save Profile
+
+            <button
+                class="btn primary-btn"
+                id="create-profile-btn">
+
+                Create Profile
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ====================================================== -->
+    <!-- PROFILE DASHBOARD -->
+    <!-- Initially hidden -->
+    <!-- ====================================================== -->
+
+    <section id="profile-dashboard">
+
+        <h2 class="section-title">
+            Your Profile Dashboard
+        </h2>
+
+
+        <!-- ================= PROFILE CARD ================= -->
+
+        <div class="profile-card">
+
+            <img
+                id="display-pic"
+                src="https://via.placeholder.com/150"
+                alt="Profile Picture">
+
+            <h2 id="display-name">
+                Your Name
+            </h2>
+
+            <p id="display-university">
+                University
+            </p>
+
+            <p id="display-bio">
+                Bio appears here.
+            </p>
+
+
+            <div id="display-skills">
+
+                <!-- Skill tags injected by JS -->
+
+            </div>
+
+
+            <button
+                class="btn secondary-btn"
+                id="edit-profile-btn">
+
+                Edit Profile
+
+            </button>
+
+
+            <button
+                class="btn secondary-btn"
+                id="delete-profile-btn">
+
+                Delete Profile
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= PROFILE STRENGTH ================= -->
+
+        <section id="profile-strength">
+
+            <h3>
+                Profile Strength
+            </h3>
+
+            <h2 id="strength-percentage">
+
+                0%
+
+            </h2>
+
+            <p>
+
+                Complete your profile and earn badges to increase your strength.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= EARNED BADGES ================= -->
+
+        <section id="earned-badges">
+
+            <h3>
+
+                Earned Badges
+
+            </h3>
+
+            <div id="badges-container">
+
+                <p>
+
+                    No badges earned yet.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= EARN BADGES ================= -->
+
+        <section id="earn-badges">
+
+            <h2 class="section-title">
+
+                Earn Badges
+
+            </h2>
+
+
+
+            <!-- HTML -->
+
+            <div class="badge-card">
+
+                <h3>
+
+                    🏅 HTML Explorer
+
+                </h3>
+
+                <p>
+
+                    Answer 2 out of 3 questions correctly.
+
+                </p>
+
+                <button
+                    class="badge-btn"
+                    data-badge="html">
+
+                    Start Quiz
 
                 </button>
 
             </div>
 
-            <!-- ================= PROFILE PREVIEW ================= -->
 
-            <div class="profile-preview">
 
-                <h3>Profile Overview</h3>
-
-                <div class="profile-avatar">
-
-                    👤
-
-                </div>
-
-                <h2 id="display-name">
-
-                    Your Name
-
-                </h2>
-
-                <p id="display-university">
-
-                    University
-
-                </p>
-
-                <p id="display-email">
-
-                    example@email.com
-
-                </p>
-
-                <p id="display-location">
-
-                    Location
-
-                </p>
-
-                <p id="display-bio">
-
-                    Your short introduction will appear here.
-
-                </p>
-
-                <h4>
-
-                    Skills
-
-                </h4>
-
-                <p id="display-skills">
-
-                    HTML • CSS • JavaScript
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= PROFILE STRENGTH ================= -->
-
-    <section id="profile-strength">
-
-        <h2 class="section-title">
-
-            Profile Strength
-
-        </h2>
-
-        <div class="strength-card">
-
-            <h3>
-
-                80% Complete
-
-            </h3>
-
-            <p>
-
-                Complete your projects, earn badges and participate in assessments to strengthen your profile.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ================= BADGES ================= -->
-
-    <section id="badges">
-
-        <h2 class="section-title">
-
-            Earned Badges
-
-        </h2>
-
-        <div class="badges-container">
+            <!-- CSS -->
 
             <div class="badge-card">
 
-                <h3>🏅 HTML Explorer</h3>
+                <h3>
 
-                <p>Completed HTML Fundamentals Assessment.</p>
+                    🎨 CSS Stylist
+
+                </h3>
+
+                <p>
+
+                    Answer 2 out of 3 questions correctly.
+
+                </p>
+
+                <button
+                    class="badge-btn"
+                    data-badge="css">
+
+                    Start Quiz
+
+                </button>
 
             </div>
+
+
+
+            <!-- JS -->
 
             <div class="badge-card">
 
-                <h3>🎨 CSS Stylist</h3>
+                <h3>
 
-                <p>Successfully completed CSS Design Challenge.</p>
+                    ⚡ JavaScript Beginner
+
+                </h3>
+
+                <p>
+
+                    Answer 2 out of 3 questions correctly.
+
+                </p>
+
+                <button
+                    class="badge-btn"
+                    data-badge="javascript">
+
+                    Start Quiz
+
+                </button>
 
             </div>
+
+
+
+            <!-- Problem Solving -->
 
             <div class="badge-card">
 
-                <h3>⚡ JavaScript Beginner</h3>
+                <h3>
 
-                <p>Passed JavaScript Basics MCQ Assessment.</p>
+                    🧠 Problem Solver
+
+                </h3>
+
+                <p>
+
+                    Answer 2 out of 3 questions correctly.
+
+                </p>
+
+                <button
+                    class="badge-btn"
+                    data-badge="problem">
+
+                    Start Quiz
+
+                </button>
 
             </div>
+
+
+
+            <!-- Team Player -->
 
             <div class="badge-card">
 
-                <h3>🧠 Problem Solver</h3>
+                <h3>
 
-                <p>Solved 20 technical assessment questions.</p>
+                    🤝 Team Player
 
-            </div>
+                </h3>
 
-            <div class="badge-card">
+                <p>
 
-                <h3>🤝 Team Player</h3>
+                    Answer 2 out of 3 questions correctly.
 
-                <p>Active contributor within the SkillBridge community.</p>
+                </p>
 
-            </div>
+                <button
+                    class="badge-btn"
+                    data-badge="team">
 
-        </div>
+                    Start Quiz
 
-    </section>
-        <!-- ================= KNOWLEDGE ASSESSMENTS ================= -->
-
-    <section id="assessments">
-
-        <h2 class="section-title">
-
-            Knowledge Assessments
-
-        </h2>
-
-        <div class="assessment-container">
-
-            <div class="assessment-card">
-
-                <h3>HTML</h3>
-
-                <p>Score: 92%</p>
-
-                <p>Badge Earned: HTML Explorer</p>
+                </button>
 
             </div>
 
-            <div class="assessment-card">
 
-                <h3>CSS</h3>
+        </section>
 
-                <p>Score: 86%</p>
 
-                <p>Badge Earned: CSS Stylist</p>
 
-            </div>
+        <!-- ================= QUIZ SECTION ================= -->
 
-            <div class="assessment-card">
+        <section id="quiz-section">
 
-                <h3>JavaScript</h3>
+            <h2>
 
-                <p>Score: 78%</p>
+                Badge Assessment
 
-                <p>Badge Earned: JavaScript Beginner</p>
+            </h2>
 
-            </div>
+            <div id="quiz-container">
 
-            <div class="assessment-card">
-
-                <h3>Problem Solving</h3>
-
-                <p>Score: 88%</p>
-
-                <p>Badge Earned: Problem Solver</p>
+                <!-- Questions generated by JS -->
 
             </div>
 
-        </div>
+        </section>
+
 
     </section>
 
 
-    <!-- ================= COMMUNITY ACTIVITY ================= -->
 
-    <section id="community-activity">
-
-        <h2 class="section-title">
-
-            Community Activity
-
-        </h2>
-
-        <div class="community-container">
-
-            <div class="community-card">
-
-                <h3>Peer Endorsements</h3>
-
-                <p>✓ Web Development (12)</p>
-
-                <p>✓ Teamwork (9)</p>
-
-                <p>✓ Problem Solving (15)</p>
-
-            </div>
-
-            <div class="community-card">
-
-                <h3>Connections</h3>
-
-                <p>34 Community Members</p>
-
-            </div>
-
-            <div class="community-card">
-
-                <h3>Status</h3>
-
-                <p>🟢 Open to Collaborate</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PROJECT STATISTICS ================= -->
-
-    <section id="project-stats">
-
-        <h2 class="section-title">
-
-            Project Statistics
-
-        </h2>
-
-        <div class="stats-container">
-
-            <div class="stat-card">
-
-                <h3>Projects Published</h3>
-
-                <h1>4</h1>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3>Skills Demonstrated</h3>
-
-                <h1>12</h1>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3>Community Views</h3>
-
-                <h1>142</h1>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3>Peer Endorsements</h3>
-
-                <h1>31</h1>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= OPPORTUNITY PROGRESS ================= -->
-
-    <section id="opportunity-progress">
-
-        <h2 class="section-title">
-
-            Opportunity Progress
-
-        </h2>
-
-        <div class="stats-container">
-
-            <div class="stat-card">
-
-                <h3>Scholarships Applied</h3>
-
-                <h1>2</h1>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3>Internships Applied</h3>
-
-                <h1>3</h1>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3>Jobs Applied</h3>
-
-                <h1>1</h1>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= RECENT ACHIEVEMENTS ================= -->
-
-    <section id="achievements">
-
-        <h2 class="section-title">
-
-            Recent Achievements
-
-        </h2>
-
-        <div class="achievement-container">
-
-            <div class="achievement-card">
-
-                <h3>🏆 Published First Project</h3>
-
-                <p>Successfully showcased your first community project.</p>
-
-            </div>
-
-            <div class="achievement-card">
-
-                <h3>🏅 Earned HTML Explorer Badge</h3>
-
-                <p>Completed HTML Fundamentals Assessment.</p>
-
-            </div>
-
-            <div class="achievement-card">
-
-                <h3>🤝 Joined SkillBridge Community</h3>
-
-                <p>Started collaborating with other talented members.</p>
-
-            </div>
-
-            <div class="achievement-card">
-
-                <h3>⭐ Top Community Contributor</h3>
-
-                <p>Received multiple peer endorsements.</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-        <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER ================= -->
 
     <footer id="footer">
 
@@ -535,6 +466,7 @@
         </p>
 
     </footer>
+
 
     <script src="script.js"></script>
 
