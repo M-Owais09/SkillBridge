@@ -379,19 +379,107 @@ badgeButtons.forEach(button => {
 // PROJECTS PAGE
 // ======================================================
 
-function initializeProjects() {
+function initializeProjects(){
 
-    const addButton =
-        document.getElementById("add-project-btn");
+const addButton=
+document.getElementById("add-project-btn");
 
-    if (!addButton)
+if(!addButton)
+return;
+
+console.log("Projects page initialized.");
+
+const formContainer=
+document.getElementById("project-form-container");
+
+const saveButton=
+document.getElementById("save-project-btn");
+
+const cancelButton=
+document.getElementById("cancel-project-btn");
+
+const noProjects=
+document.getElementById("no-projects-message");
+
+formContainer.style.display="none";
+
+loadProjects();
+
+
+// Open form
+addButton.addEventListener("click",()=>{
+
+    formContainer.style.display="block";
+
+});
+
+
+// Close form
+cancelButton.addEventListener("click",()=>{
+
+    formContainer.style.display="none";
+
+});
+
+
+// Save project
+saveButton.addEventListener("click",()=>{
+
+    const title=
+    document.getElementById("project-title").value.trim();
+
+    const description=
+    document.getElementById("project-description").value.trim();
+
+    const technologies=
+    document.getElementById("project-technologies").value.trim();
+
+    const type=
+    document.getElementById("project-type").value;
+
+    const status=
+    document.getElementById("project-status").value;
+
+    const link=
+    document.getElementById("project-link").value.trim();
+
+    if(title===""||description==="")
+    {
+        alert("Please fill required fields.");
         return;
+    }
 
-    console.log("Projects page initialized.");
+    const project={
+
+        title,
+        description,
+        technologies,
+        type,
+        status,
+        link
+    };
+
+    let projects=
+    JSON.parse(
+        localStorage.getItem("projects")
+    )||[];
+
+    projects.push(project);
+
+    localStorage.setItem(
+        "projects",
+        JSON.stringify(projects)
+    );
+
+    clearProjectForm();
+
+    formContainer.style.display="none";
+
+    loadProjects();
+
+});
 
 }
-
-
 
 // ======================================================
 // COMMUNITY PAGE
@@ -682,4 +770,115 @@ function submitQuiz(badgeName)
     document.getElementById(
         "quiz-section"
     ).style.display = "none";
+}
+
+function loadProjects(){
+
+const container=
+document.getElementById("projects-container");
+
+if(!container)
+return;
+
+const noProjects=
+document.getElementById("no-projects-message");
+
+const projects=
+JSON.parse(
+localStorage.getItem("projects")
+)||[];
+
+container.innerHTML="";
+
+if(projects.length===0)
+{
+    noProjects.style.display="block";
+    return;
+}
+
+noProjects.style.display="none";
+
+projects.forEach((project,index)=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+<h3>${project.title}</h3>
+
+<p>${project.description}</p>
+
+<p><strong>Technologies:</strong>
+${project.technologies}</p>
+
+<p><strong>Type:</strong>
+${project.type}</p>
+
+<p><strong>Status:</strong>
+${project.status}</p>
+
+${
+project.link!=="" ?
+`<a href="${project.link}"
+target="_blank">
+View Project
+</a>`
+:
+""
+}
+
+<br><br>
+
+<button
+onclick="deleteProject(${index})"
+class="btn secondary-btn">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function clearProjectForm(){
+
+document.getElementById(
+"project-title"
+).value="";
+
+document.getElementById(
+"project-description"
+).value="";
+
+document.getElementById(
+"project-technologies"
+).value="";
+
+document.getElementById(
+"project-link"
+).value="";
+
+}
+
+function deleteProject(index){
+
+let projects=
+JSON.parse(
+localStorage.getItem("projects")
+)||[];
+
+projects.splice(index,1);
+
+localStorage.setItem(
+"projects",
+JSON.stringify(projects)
+);
+
+loadProjects();
+
 }
