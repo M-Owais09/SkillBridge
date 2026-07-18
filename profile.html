@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav id="navbar">
+
+        <div class="logo">
+            SkillBridge
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="index.html#problem">Problem</a></li>
+
+            <li><a href="index.html#features">Features</a></li>
+
+            <li><a href="profile.html" class="active">Profile</a></li>
+
+            <li><a href="projects.html">Projects</a></li>
+
+            <li><a href="community.html">Community</a></li>
+
+            <li><a href="opportunities.html">Opportunities</a></li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= PROFILE SECTION ================= -->
+    <section id="profile" class="profile-container-section">
+
+        <h2 class="section-title">
+            Your Digital Profile
+        </h2>
+        
+        <div class="profile-layout">
+            
+            <!-- Left Side: Input Form -->
+            <div class="card profile-form-card">
+
+                <h3>Edit Profile</h3>
+
+                <form id="profileForm">
+
+                    <div class="form-group">
+                        <label for="profilePicInput">Profile Picture</label>
+                        <input type="file" id="profilePicInput" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" placeholder="e.g. Muhammad Owais" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userUni">University</label>
+                        <input type="text" id="userUni" placeholder="e.g. NED University" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userBio">Bio</label>
+                        <textarea id="userBio" placeholder="Tell us about yourself..." rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSkills">Skills (Comma separated)</label>
+                        <input type="text" id="userSkills" placeholder="e.g. C++, Git, HTML" required>
+                    </div>
+
+                    <button type="submit" class="primary-btn" id="6hpm34">
+                        Save Profile
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Right Side: Live View Canvas -->
+            <div class="card profile-display-card">
+
+                <h3>Live Preview</h3>
+
+                <div class="avatar-container">
+                    <img id="displayPic" src="https://via.placeholder.com/150" alt="Profile Picture">
+                </div>
+
+                <h2 id="displayName">Your Name</h2>
+
+                <p id="displayUni" class="uni-text">Your University</p>
+
+                <p id="displayBio">Your professional bio will appear here.</p>
+                
+                <div class="skills-tag-container" id="displaySkills">
+                    <!-- Dynamic tags print here later -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+
+        <h3>
+            SkillBridge
+        </h3>
+
+        <p>
+            Bridging Skills and Opportunities.
+        </p>
+
+        <p>
+            BuildByte Hackathon Submission
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
