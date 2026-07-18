@@ -4,135 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillBridge - Projects</title>
-
+    <!-- Linked using your team's structure -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- ================= NAVBAR ================= -->
     <nav id="navbar">
-
-        <div class="logo">
-            SkillBridge
-        </div>
-
+        <div class="logo">SkillBridge</div>
         <ul class="nav-links">
-
             <li><a href="index.html">Home</a></li>
-
             <li><a href="index.html#problem">Problem</a></li>
-
             <li><a href="index.html#features">Features</a></li>
-
             <li><a href="profile.html">Profile</a></li>
-
             <li><a href="projects.html" class="active">Projects</a></li>
-
             <li><a href="community.html">Community</a></li>
-
             <li><a href="opportunities.html">Opportunities</a></li>
-
         </ul>
-
     </nav>
 
-
     <!-- ================= PROJECTS SECTION ================= -->
-    <section id="projects" class="profile-container-section">
+    <section class="container">
+        <h2 class="section-title">Project Proof-of-Skill Showcase</h2>
 
-        <h2 class="section-title">
-            Project Proof-of-Skill Showcase
-        </h2>
-
-        <div class="profile-layout">
+        <div class="profile-layout" style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
             
-            <!-- Left Side Form Input -->
-            <div class="card profile-form-card">
-
+            <!-- LEFT COLUMN: Add Project Input Card -->
+            <!-- Matches team ID: project-form -->
+            <div class="card" id="project-form" style="flex: 1; min-width: 320px;">
                 <h3>Add a Project</h3>
-
-                <form id="projectForm">
-
-                    <div class="form-group">
-                        <label for="projTitle">Project Title</label>
-                        <input type="text" id="projTitle" placeholder="e.g. Bank Management System" required>
+                <form>
+                    <!-- Matches team ID: project-title-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="project-title-input" style="font-weight: bold; margin-bottom: 0.5rem;">Project Title</label>
+                        <input type="text" id="project-title-input" placeholder="e.g. Bank Management System" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="projDesc">Description</label>
-                        <textarea id="projDesc" placeholder="Explain what problem this project solves..." rows="4" required></textarea>
+                    <!-- Matches team ID: project-description-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="project-description-input" style="font-weight: bold; margin-bottom: 0.5rem;">Detailed Description</label>
+                        <textarea id="project-description-input" placeholder="Explain what problem this project solves..." rows="3" required></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="projTech">Skills Demonstrated (Comma separated)</label>
-                        <input type="text" id="projTech" placeholder="e.g. C++, OOP" required>
+                    <!-- Matches team ID: project-skills-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="project-skills-input" style="font-weight: bold; margin-bottom: 0.5rem;">Skills Demonstrated (Comma separated)</label>
+                        <input type="text" id="project-skills-input" placeholder="e.g. C++, OOP, Logic Structures" required>
                     </div>
 
-                    <!-- New Video Project Section Input -->
-                    <div class="form-group">
-                        <label for="projVideoInput">Upload Project Video (MP4/WebM)</label>
-                        <input type="file" id="projVideoInput" accept="video/*" required>
+                    <!-- CUSTOM VALUE ADD: Concepts Input -->
+                    <!-- Pattern extension tracking standard format: project-[element]-input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="project-concepts-input" style="font-weight: bold; margin-bottom: 0.5rem;">New Concepts Learned</label>
+                        <textarea id="project-concepts-input" placeholder="What new core logic or parameters did you learn?" rows="2" required></textarea>
                     </div>
 
-                    <button type="submit" class="primary-btn">
-                        Publish Project
-                    </button>
+                    <!-- CUSTOM VALUE ADD: Challenges Input -->
+                    <div class="form-group" style="margin-bottom: 1rem; display: flex; flex-direction: column;">
+                        <label for="project-challenges-input" style="font-weight: bold; margin-bottom: 0.5rem;">Challenges Faced & Overcome</label>
+                        <textarea id="project-challenges-input" placeholder="What went wrong and how did you patch it?" rows="2" required></textarea>
+                    </div>
 
+                    <!-- Matches team ID: project-link-input (Optional repository link) -->
+                    <div class="form-group" style="margin-bottom: 1.5rem; display: flex; flex-direction: column;">
+                        <label for="project-link-input" style="font-weight: bold; margin-bottom: 0.5rem;">Project Link / GitHub (Optional)</label>
+                        <input type="url" id="project-link-input" placeholder="https://github.com/your-repository">
+                    </div>
+
+                    <!-- Matches team ID: add-project-btn and class: btn primary-btn -->
+                    <button type="submit" class="btn primary-btn" id="add-project-btn" style="width: 100%;">Publish Project</button>
                 </form>
-
             </div>
 
-
-            <!-- Right Side Project Feed Grid -->
-            <div class="projects-display-feed">
-
+            <!-- RIGHT COLUMN: Interactive Project Cards Feed Stream -->
+            <div style="flex: 1.2; min-width: 320px;">
                 <h3>Your Submissions</h3>
 
-                <div id="projectsContainer" class="project-feed-list">
+                <!-- Matches team ID: projects-container -->
+                <div id="projects-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     
-                    <!-- Static representation of what a published video project looks like -->
-                    <div class="card project-item-card">
+                    <!-- SAMPLE RENDER: Demonstrates layout execution using team classes -->
+                    <!-- Matches team classes: card, project-card, project-title, project-description, skill-tag -->
+                    <div class="card project-card" style="border-left: 5px solid #007bff; text-align: left;">
+                        <h4 class="project-title" style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Example Project: Library System</h4>
+                        <p class="project-description">A custom console application that tracks book loans, user limits, and dynamic text database logs.</p>
                         
-                        <h4>Example Project: Video Demonstration</h4>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;"><strong>💡 New Concepts:</strong> Working with file streams (`fstream`) and manual array sorting sorting logic.</p>
+                        <p style="margin-top: 0.3rem; font-size: 0.9rem;"><strong>⚠️ Challenges:</strong> Handling input spaces causing buffer breaks. Patched using `getline()` and buffer flushes.</p>
                         
-                        <p>This is where your project description will sit. Below is the video player showcasing your runtime functionality.</p>
-                        
-                        <!-- Video player tag structure for project rendering -->
-                        <div class="video-container" style="margin-top: 1rem; width: 100%;">
-                            <video id="displayVideo" controls src="" poster="https://via.placeholder.com/600x340?text=Your+Project+Video+Preview" style="width: 100%; border-radius: 6px;"></video>
-                        </div>
-
-                        <div class="skills-tag-container" style="margin-top: 1rem;">
+                        <div class="skills-tag-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
                             <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Video Proof</span>
+                            <span class="skill-tag">File IO</span>
                         </div>
-
                     </div>
 
                 </div>
-
             </div>
 
         </div>
-
     </section>
-
 
     <!-- ================= FOOTER ================= -->
     <footer id="footer">
-
-        <h3>
-            SkillBridge
-        </h3>
-
-        <p>
-            Bridging Skills and Opportunities.
-        </p>
-
-        <p>
-            BuildByte Hackathon Submission
-        </p>
-
+        <h3>SkillBridge</h3>
+        <p>Bridging Skills and Opportunities.</p>
+        <p>BuildByte Hackathon Submission</p>
     </footer>
 
     <script src="script.js"></script>
