@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge | Opportunities</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav id="navbar">
+
+        <div class="logo">
+            SkillBridge
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="index.html#problem">Problem</a></li>
+
+            <li><a href="index.html#features">Features</a></li>
+
+            <li><a href="profile.html">Profile</a></li>
+
+            <li><a href="projects.html">Projects</a></li>
+
+            <li><a href="community.html">Community</a></li>
+
+            <li><a href="opportunities.html">Opportunities</a></li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <h1 class="hero-title">
+            Discover Opportunities
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Find scholarships, internships, hackathons and learning
+            programs that can help you grow.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= OPPORTUNITIES ================= -->
+
+    <section id="opportunities">
+
+        <h2 class="section-title">
+            Available Opportunities
+        </h2>
+
+        <div id="opportunities-container">
+
+
+            <!-- Scholarship 1 -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    Trailblazer Engineers Scholarship
+                </h3>
+
+                <p class="opportunity-description">
+                    Financial assistance program for talented students.
+                </p>
+
+                <p>
+                    Type: Scholarship
+                </p>
+
+                <button class="apply-btn">
+                    Apply
+                </button>
+
+            </div>
+
+
+            <!-- Scholarship 2 -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    HEC Need Based Scholarship
+                </h3>
+
+                <p class="opportunity-description">
+                    Supports students facing financial barriers.
+                </p>
+
+                <p>
+                    Type: Scholarship
+                </p>
+
+                <button class="apply-btn">
+                    Apply
+                </button>
+
+            </div>
+
+
+
+            <!-- Internship 1 -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    Frontend Web Internship
+                </h3>
+
+                <p class="opportunity-description">
+                    Gain practical experience in HTML, CSS and JavaScript.
+                </p>
+
+                <p>
+                    Type: Internship
+                </p>
+
+                <button class="apply-btn">
+                    Apply
+                </button>
+
+            </div>
+
+
+
+            <!-- Internship 2 -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    Software Development Internship
+                </h3>
+
+                <p class="opportunity-description">
+                    Work on real projects and build professional skills.
+                </p>
+
+                <p>
+                    Type: Internship
+                </p>
+
+                <button class="apply-btn">
+                    Apply
+                </button>
+
+            </div>
+
+
+
+            <!-- Learning Opportunity -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    Harvard CS50
+                </h3>
+
+                <p class="opportunity-description">
+                    Free world-class computer science course.
+                </p>
+
+                <p>
+                    Type: Course
+                </p>
+
+                <button class="apply-btn">
+                    Interested
+                </button>
+
+            </div>
+
+
+
+            <!-- Hackathon -->
+
+            <div class="opportunity-card">
+
+                <h3 class="opportunity-title">
+                    IEEE BuildByte Hackathon
+                </h3>
+
+                <p class="opportunity-description">
+                    Solve real problems and build impactful projects.
+                </p>
+
+                <p>
+                    Type: Hackathon
+                </p>
+
+                <button class="apply-btn">
+                    Apply
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FUTURE VISION ================= -->
+
+    <section id="future">
+
+        <h2 class="section-title">
+
+            Future Vision
+
+        </h2>
+
+        <div class="card">
+
+            <p>
+
+                In future versions, SkillBridge can integrate real
+                scholarship APIs, internship portals and personalized
+                AI recommendations to connect users with opportunities
+                matching their skills.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="footer">
+
+        <h3>
+            SkillBridge
+        </h3>
+
+        <p>
+            Bridging Skills and Opportunities.
+        </p>
+        
+        <p>
+
+            BuildByte Hackathon Submission
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script>
+
+        const buttons =
+            document.querySelectorAll(".apply-btn");
+
+        buttons.forEach(button => {
+
+            button.addEventListener("click", function(){
+
+                this.innerText = "Applied ✓";
+
+                this.disabled = true;
+
+                this.style.opacity = "0.6";
+
+                this.style.cursor = "not-allowed";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
